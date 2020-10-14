@@ -11,7 +11,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    //считываем данные с сервера
+    //считываем данные с сервера GET
     @IBAction func getRequest(_ sender: UIButton) {
         
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         }.resume()
     }
     
-    //передаём данные на сервер
+    //передаём данные на сервер POST
     @IBAction func postRequest(_ sender: UIButton) {
         
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
@@ -65,12 +65,12 @@ class ViewController: UIViewController {
                 let response = response
             else { return }
             
-            print(response)
+//            print(response)
 
             //обработка ответа от сервера
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
-                print(json)
+//                print(json)
             } catch {
                 print(error)
             }
