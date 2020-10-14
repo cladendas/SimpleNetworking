@@ -17,6 +17,7 @@
 		6AFBC2EF253773B300BF70A5 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFBC2EE253773B300BF70A5 /* CoursesViewController.swift */; };
 		6AFBC2F12537751000BF70A5 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFBC2F02537751000BF70A5 /* Course.swift */; };
 		6AFBC2F32537838600BF70A5 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFBC2F22537838600BF70A5 /* WebViewController.swift */; };
+		6AFBC2F52537860700BF70A5 /* WebsiteDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFBC2F42537860700BF70A5 /* WebsiteDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		6AFBC2EE253773B300BF70A5 /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
 		6AFBC2F02537751000BF70A5 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		6AFBC2F22537838600BF70A5 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		6AFBC2F42537860700BF70A5 /* WebsiteDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteDescription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				6AFBC2EE253773B300BF70A5 /* CoursesViewController.swift */,
 				6AFBC2F22537838600BF70A5 /* WebViewController.swift */,
 				6AFBC2F02537751000BF70A5 /* Course.swift */,
+				6AFBC2F42537860700BF70A5 /* WebsiteDescription.swift */,
 				6AFBC2DE2536063E00BF70A5 /* Main.storyboard */,
 				6AFBC2E12536064000BF70A5 /* Assets.xcassets */,
 				6AFBC2E32536064000BF70A5 /* LaunchScreen.storyboard */,
@@ -152,6 +155,7 @@
 			files = (
 				6AFBC2F12537751000BF70A5 /* Course.swift in Sources */,
 				6AFBC2DD2536063E00BF70A5 /* ImageViewController.swift in Sources */,
+				6AFBC2F52537860700BF70A5 /* WebsiteDescription.swift in Sources */,
 				6AFBC2D92536063E00BF70A5 /* AppDelegate.swift in Sources */,
 				6AFBC2ED2536CC3000BF70A5 /* ViewController.swift in Sources */,
 				6AFBC2F32537838600BF70A5 /* WebViewController.swift in Sources */,

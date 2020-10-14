@@ -185,7 +185,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="postRequest:" destination="s8L-2m-urS" eventType="touchUpInside" id="nNc-HY-yPF"/>
                                     <segue destination="o5O-2B-7Xh" kind="show" id="UtQ-VS-tdH"/>
                                 </connections>
                             </button>
