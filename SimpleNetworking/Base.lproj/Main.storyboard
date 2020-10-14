@@ -40,7 +40,7 @@
         <!--Our Curses-->
         <scene sceneID="6gf-dL-W1O">
             <objects>
-                <tableViewController id="o5O-2B-7Xh" sceneMemberID="viewController">
+                <tableViewController id="o5O-2B-7Xh" customClass="CoursesViewController" customModule="SimpleNetworking" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mnt-p2-0k7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -65,12 +65,12 @@ class ViewController: UIViewController {
                 let response = response
             else { return }
             
-//            print(response)
+            print(response)
 
             //обработка ответа от сервера
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
-//                print(json)
+                print(json)
             } catch {
                 print(error)
             }

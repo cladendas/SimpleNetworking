@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CoursesViewController: UIViewController {
+class CoursesViewController: UITableViewController {
     
     override func viewDidLoad() {
         fetchData()
