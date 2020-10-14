@@ -10,12 +10,10 @@ import UIKit
 
 class ImageViewController: UIViewController {
 
-    @IBOutlet var label: UILabel!
     @IBOutlet var image: UIImageView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
         
     func fetchImage() {
-        label.isHidden = true
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         
