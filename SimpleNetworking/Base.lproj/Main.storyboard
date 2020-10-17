@@ -101,21 +101,42 @@
             </objects>
             <point key="canvasLocation" x="1834.7826086956522" y="696.42857142857144"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="wrk-Tq-TJM">
             <objects>
-                <viewController id="1Mo-UT-OQ4" sceneMemberID="viewController">
+                <viewController id="1Mo-UT-OQ4" customClass="WebViewController" customModule="SimpleNetworking" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cIj-Wg-Cg1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JBY-sJ-qon">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" id="jmx-rI-FkG">
+                                <rect key="frame" x="0.0" y="86" width="416" height="3"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="L9l-kO-nqb"/>
                     </view>
-                    <navigationItem key="navigationItem" id="qg1-JF-oBN"/>
+                    <navigationItem key="navigationItem" id="qg1-JF-oBN">
+                        <nil key="title"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="progressView" destination="jmx-rI-FkG" id="XF3-hJ-lEv"/>
+                        <outlet property="webView" destination="JBY-sJ-qon" id="vmZ-sp-BF8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Nk-Vb-4WC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2746" y="698"/>
+            <point key="canvasLocation" x="2744.9275362318845" y="697.76785714285711"/>
         </scene>
         <!--Controllers-->
         <scene sceneID="dXS-z4-ecU">

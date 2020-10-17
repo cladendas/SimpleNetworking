@@ -121,7 +121,10 @@ class CoursesViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let webViewController = segue.destination as! WebViewController
         
-//        webViewController.sele
+        webViewController.selectedCourse = courseName
         
+        if let url = courseURL {
+            webViewController.courseURL = url
+        }
     }
 }

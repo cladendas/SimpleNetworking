@@ -19,6 +19,7 @@
 		6AFBC2F32537838600BF70A5 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFBC2F22537838600BF70A5 /* WebViewController.swift */; };
 		6AFBC2F52537860700BF70A5 /* WebsiteDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFBC2F42537860700BF70A5 /* WebsiteDescription.swift */; };
 		6AFBC2F725381C6B00BF70A5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFBC2F625381C6B00BF70A5 /* TableViewCell.swift */; };
+		6AFBC2FE253B36B500BF70A5 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFBC2FD253B36B500BF70A5 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		6AFBC2F22537838600BF70A5 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		6AFBC2F42537860700BF70A5 /* WebsiteDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteDescription.swift; sourceTree = "<group>"; };
 		6AFBC2F625381C6B00BF70A5 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		6AFBC2FD253B36B500BF70A5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AFBC2FE253B36B500BF70A5 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +57,7 @@
 			children = (
 				6AFBC2D72536063E00BF70A5 /* SimpleNetworking */,
 				6AFBC2D62536063E00BF70A5 /* Products */,
+				6AFBC2FC253B36B400BF70A5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +87,14 @@
 				6AFBC2E62536064000BF70A5 /* Info.plist */,
 			);
 			path = SimpleNetworking;
+			sourceTree = "<group>";
+		};
+		6AFBC2FC253B36B400BF70A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6AFBC2FD253B36B500BF70A5 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
