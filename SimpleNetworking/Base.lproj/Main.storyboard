@@ -85,7 +85,7 @@
                                     <outlet property="courseNameLabel" destination="ssu-0c-WjM" id="jdM-GW-wTg"/>
                                     <outlet property="numberOfLessons" destination="Qtx-2R-7p7" id="JzO-j1-hdc"/>
                                     <outlet property="numberOfTests" destination="1OA-EZ-AfM" id="10f-cK-jIX"/>
-                                    <segue destination="1Mo-UT-OQ4" kind="show" id="3rQ-PJ-OBa"/>
+                                    <segue destination="1Mo-UT-OQ4" kind="show" identifier="Description" id="3rQ-PJ-OBa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

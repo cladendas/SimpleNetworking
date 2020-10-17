@@ -12,10 +12,12 @@ import Foundation
 //создаётся в соответствии с API, с которым предполагается работа
 struct Course: Decodable {
     
+    //названия должны быть записаны как в JSON (в этом JSON данные были записаны в snake_case)
+    //но для соблюдения в коде camelCase при сериализации можно использовать keyDecodingStrategy()
     let id: Int?
     let name: String?
     let link: String?
     let imageUrl: String?
-    let number_of_lessons: Int?
-    let number_of_tests: Int?
+    let numberOfLessons: Int?
+    let numberOfTests: Int?
 }

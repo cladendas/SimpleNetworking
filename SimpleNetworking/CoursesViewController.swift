@@ -11,7 +11,10 @@ import UIKit
 
 class CoursesViewController: UITableViewController {
     
-    var courses = [Course]()
+    private var courses = [Course]()
+    private var courseName: String?
+    private var courseURL:String?
+    
     
     override func viewDidLoad() {
         fetchData()
@@ -38,10 +41,13 @@ class CoursesViewController: UITableViewController {
             guard let data = data else { return }
             
             do {
+                let decoder = JSONDecoder()
+                //keyDecodingStrategy() позволяет писать в коде в стиле camelCase, хотя в JSON поля написаны в snake_case
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
                 //JSONDecoder позволяет декодировать данные и разложить их по модели
                 //decode() декодирует в конкретный тип, который нужен
-//                let course = try JSONDecoder().decode(Course.self, from: data)
-                self.courses = try JSONDecoder().decode([Course].self, from: data)
+//                let course = try decoder.decode(Course.self, from: data)
+                self.courses = try decoder.decode([Course].self, from: data)
 //                let websiteDescription = try JSONDecoder().decode(WebsiteDescription.self, from: data)
                 
 //                print("\(websiteDescription.websiteName ?? "") \(websiteDescription.websiteDescription ?? "")")
@@ -61,11 +67,11 @@ class CoursesViewController: UITableViewController {
         let course = courses[indexPath.row]
         cell.courseNameLabel.text = course.name
         
-        if let numberOfLessons = course.number_of_lessons {
+        if let numberOfLessons = course.numberOfLessons {
             cell.numberOfLessons.text = "Number of lessons: \(numberOfLessons)"
         }
         
-        if let numberOfTests = course.number_of_tests {
+        if let numberOfTests = course.numberOfTests {
             cell.numberOfTests.text = "Number of tests: \(numberOfTests)"
         }
         
@@ -101,5 +107,21 @@ class CoursesViewController: UITableViewController {
     //высота ячейки
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let course = courses[indexPath.row]
+        
+        courseURL = course.link
+        courseName = course.name
+        
+        performSegue(withIdentifier: "Description", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let webViewController = segue.destination as! WebViewController
+        
+//        webViewController.sele
+        
     }
 }
