@@ -79,6 +79,7 @@ class CoursesViewController: UITableViewController {
             //обновление интерфейса должно происходить ассинхронно в основном потоке
             DispatchQueue.main.async {
                 cell.courseImage.image = UIImage(data: imageData)
+                
             }
         }
     }
@@ -95,5 +96,10 @@ class CoursesViewController: UITableViewController {
         
         return cell
         
+    }
+    
+    //высота ячейки
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
     }
 }
