@@ -1,20 +1,17 @@
 //
-//  ImageViewController.swift
+//  NetworkManager.swift
 //  SimpleNetworking
 //
-//  Created by cladendas on 14.10.2020.
+//  Created by cladendas on 19.10.2020.
 //  Copyright © 2020 cladendas. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class ViewController: UIViewController {
+class NetworkManager {
     
-    //считываем данные с сервера GET
-    @IBAction func getRequest(_ sender: UIButton) {
-        
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
+    static func getRequest(url: String) {
+        guard let url = URL(string: url) else { return }
         
         let session = URLSession.shared
         
@@ -37,10 +34,9 @@ class ViewController: UIViewController {
         }.resume()
     }
     
-    //передаём данные на сервер POST
-    @IBAction func postRequest(_ sender: UIButton) {
+    static func postRequest(url: String) {
         
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
+        guard let url = URL(string: url) else { return }
         
         //передаваемые данные на сервер
         let userData = ["Course": "Networking,", "Lesson": "GET and POST requests"]
@@ -75,7 +71,26 @@ class ViewController: UIViewController {
                 print(error)
             }
         }.resume()
-        
     }
     
+    
+    //с помощью замыкания захватываем изображение
+    static func downLoadImage(url: String, complition: @escaping (_ image: UIImage) -> ()) {
+        
+        //"https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
+        guard let url = URL(string: url) else { return }
+        
+        //создание общей сессии
+        let session = URLSession.shared
+        
+        //извлечение данных по указанному url
+        //происходит ассинхронно в фоновом потоке
+        session.dataTask(with: url) { (data, response, error) in
+            if let data = data, let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    complition(image)
+                }
+            }
+        }.resume()
+    }
 }

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Controls-->
         <scene sceneID="xHS-7E-2c3">
             <objects>
                 <collectionViewController modalPresentationStyle="fullScreen" id="kxN-5N-dgt" customClass="MainViewController" customModule="SimpleNetworking" customModuleProvider="target" sceneMemberID="viewController">
@@ -26,7 +26,7 @@
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="uyk-Bn-UYh" customClass="CollectionViewCell" customModule="SimpleNetworking" customModuleProvider="target">
                                 <rect key="frame" x="37" y="40" width="340" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Gfh-DN-Sb8" customClass="CollectionViewCell" customModule="SimpleNetworking" customModuleProvider="target">
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Gfh-DN-Sb8" customClass="CollectionViewCell" customModule="SimpleNetworking" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="340" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -60,7 +60,7 @@
                             <outlet property="delegate" destination="kxN-5N-dgt" id="gd8-ng-pEy"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="tjQ-pa-QJh"/>
+                    <navigationItem key="navigationItem" title="Controls" id="ltF-Iv-8us"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="ShowImage" id="gcE-uo-nLw"/>
                         <segue destination="o5O-2B-7Xh" kind="show" identifier="OurCourses" id="stQ-Iz-2RJ"/>
