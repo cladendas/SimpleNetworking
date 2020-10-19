@@ -10,6 +10,7 @@ import UIKit
 import WebKit
 
 class WebViewController: UIViewController {
+    
     var selectedCourse: String?
     var courseURL = ""
     

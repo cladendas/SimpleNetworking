@@ -115,7 +115,7 @@ class CoursesViewController: UITableViewController {
         courseURL = course.link
         courseName = course.name
         
-        performSegue(withIdentifier: "Description", sender: self)
+//        performSegue(withIdentifier: "Description", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
