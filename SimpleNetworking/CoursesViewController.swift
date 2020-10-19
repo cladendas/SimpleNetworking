@@ -14,6 +14,7 @@ class CoursesViewController: UITableViewController {
     private var courses = [Course]()
     private var courseName: String?
     private var courseURL:String?
+    private let url = "https://swiftbook.ru/wp-content/uploads/api/api_courses"
     
     
     override func viewDidLoad() {
@@ -22,45 +23,13 @@ class CoursesViewController: UITableViewController {
     
     func fetchData() {
         
-        //здесь один объект
-//        let jsonUrlString = "https://swiftbook.ru/wp-content/uploads/api/api_course"
-        
-        //здесь массив объектов
-        let jsonUrlString = "https://swiftbook.ru/wp-content/uploads/api/api_courses"
-        
-        //здесь описание сайта и массив объектов
-//        let jsonUrlString = "https://swiftbook.ru/wp-content/uploads/api/api_website_description"
-        
-        //здесь описание сайта и массив объектов, но с пропущенными полям, т.е. не соотвествует модели
-//        let jsonUrlString = "https://swiftbook.ru/wp-content/uploads/api/api_missing_or_wrong_fields"
-        
-        guard let url = URL(string: jsonUrlString) else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        NetworkManager.fetchData(url: url) { (courses) in
+            self.courses = courses
             
-            guard let data = data else { return }
-            
-            do {
-                let decoder = JSONDecoder()
-                //keyDecodingStrategy() позволяет писать в коде в стиле camelCase, хотя в JSON поля написаны в snake_case
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                //JSONDecoder позволяет декодировать данные и разложить их по модели
-                //decode() декодирует в конкретный тип, который нужен
-//                let course = try decoder.decode(Course.self, from: data)
-                self.courses = try decoder.decode([Course].self, from: data)
-//                let websiteDescription = try JSONDecoder().decode(WebsiteDescription.self, from: data)
-                
-//                print("\(websiteDescription.websiteName ?? "") \(websiteDescription.websiteDescription ?? "")")
-//                print(websiteDescription.courses)
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            } catch let error {
-                print("Error serialization json", error)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
-            
-        }.resume()
+        }
     }
     
     private func configureCell(cell: TableViewCell, for indexPath: IndexPath) {

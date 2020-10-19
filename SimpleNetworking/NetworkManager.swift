@@ -93,4 +93,29 @@ class NetworkManager {
             }
         }.resume()
     }
+    
+    static func fetchData(url: String, complition: @escaping (_ courses: [Course]) -> ()) {
+                
+        guard let url = URL(string: url) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, _, _) in
+            
+            guard let data = data else { return }
+            
+            do {
+                let decoder = JSONDecoder()
+                //keyDecodingStrategy() позволяет писать в коде в стиле camelCase, хотя в JSON поля написаны в snake_case
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                //JSONDecoder позволяет декодировать данные и разложить их по модели
+                //decode() декодирует в конкретный тип, который нужен
+                let courses = try decoder.decode([Course].self, from: data)
+                
+                complition(courses)
+
+            } catch let error {
+                print("Error serialization json", error)
+            }
+            
+        }.resume()
+    }
 }
