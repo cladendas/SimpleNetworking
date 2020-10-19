@@ -118,4 +118,38 @@ class NetworkManager {
             
         }.resume()
     }
+    
+    static func uploadImage(url: String) {
+        
+        let image = UIImage(named: "desertEagle")!
+        
+        //параметры в виде словаря для авторизации на сервере
+        let httpHeaders = ["Authorization" : "Client-ID 34948ce5c28f481"]
+        
+        guard let imageProperties = ImageProperties(withImage: image, forKey: "image") else { return }
+        
+        guard let url = URL(string: url) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        //передаём словарь в качестве параметров заголовок запроса
+        request.allHTTPHeaderFields = httpHeaders
+        //передаём данные для отправки на сервер
+        request.httpBody = imageProperties.data
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let response = response {
+                print(response)
+            }
+            
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                } catch {
+                    print(error)
+                }
+            }
+        }.resume()
+    }
 }
