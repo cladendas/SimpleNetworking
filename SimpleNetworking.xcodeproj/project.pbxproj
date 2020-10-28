@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6AAB92D9253B8B0F008611D2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAB92D8253B8B0F008611D2 /* MainViewController.swift */; };
 		6AAB92DB253B8B1D008611D2 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAB92DA253B8B1D008611D2 /* CollectionViewCell.swift */; };
+		6AB192AF2549B137002D13C2 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB192AE2549B136002D13C2 /* DataProvider.swift */; };
 		6AEA08C5253D9FEF00B24176 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEA08C4253D9FEF00B24176 /* NetworkManager.swift */; };
 		6AEA08C7253E30CD00B24176 /* ImageProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEA08C6253E30CD00B24176 /* ImageProperties.swift */; };
 		6AFBC2D92536063E00BF70A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFBC2D82536063E00BF70A5 /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		6AAB92D8253B8B0F008611D2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6AAB92DA253B8B1D008611D2 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		6AB192AE2549B136002D13C2 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		6AEA08C4253D9FEF00B24176 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		6AEA08C6253E30CD00B24176 /* ImageProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProperties.swift; sourceTree = "<group>"; };
 		6AFBC2D52536063E00BF70A5 /* SimpleNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +83,7 @@
 				6AFBC2D82536063E00BF70A5 /* AppDelegate.swift */,
 				6AFBC2DA2536063E00BF70A5 /* SceneDelegate.swift */,
 				6AEA08C4253D9FEF00B24176 /* NetworkManager.swift */,
+				6AB192AE2549B136002D13C2 /* DataProvider.swift */,
 				6AAB92D8253B8B0F008611D2 /* MainViewController.swift */,
 				6AAB92DA253B8B1D008611D2 /* CollectionViewCell.swift */,
 				6AFBC2DC2536063E00BF70A5 /* ImageViewController.swift */,
@@ -189,6 +192,7 @@
 				6AFBC2EF253773B300BF70A5 /* CoursesViewController.swift in Sources */,
 				6AAB92D9253B8B0F008611D2 /* MainViewController.swift in Sources */,
 				6AAB92DB253B8B1D008611D2 /* CollectionViewCell.swift in Sources */,
+				6AB192AF2549B137002D13C2 /* DataProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
