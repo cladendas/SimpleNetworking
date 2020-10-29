@@ -19,8 +19,30 @@ class AlamofireNetworkRequest {
         //responseJSON - говорит, что ответ от серсвера нужен в формате JSON
         //response - ответ от сервера
         //если не указан тип запроса, то выполняется GET-запрос
+        
+        /*
         AF.request(url).responseJSON { (response) in
-            print(response)
+            guard let statusCode = response.response?.statusCode else { return }
+            print("statusCode:", statusCode)
+
+            //если statusCode в предела 200-300, то выводим полученное от сервера значение response.value
+            if (200 ..< 300).contains(statusCode) {
+                let value = response.value
+                print("value: ", value ?? "nil")
+            } else {
+                let error = response.error
+                print(error ?? "error")
+            }
+        }
+        */
+        
+        AF.request(url).validate().responseJSON { (response) in
+            switch response.result {
+                case .success(let value):
+                    print(value)
+            case .failure(let error):
+                    print(error)
+            }
         }
     }
 }
