@@ -27,6 +27,67 @@ class MainViewController: UICollectionViewController {
     
     //получаем все значения перечисления в виде массива
     let actions = Actions.allCases
+    
+    private var alert: UIAlertController!
+    
+    private let dataProvider = DataProvider()
+    private var filePath: String?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        registerForNotification()
+        
+        dataProvider.fileLocation = { (location) in
+            //Сохранить файл для дальнейшего использования
+            print("Download finished: \(location.absoluteString)")
+            self.filePath = location.absoluteString
+            self.alert.dismiss(animated: false, completion: nil)
+            self.postNotification()
+        }
+    }
+    
+    ///Отображает alertcontroller
+    private func showAlert() {
+        alert = UIAlertController(title: "Downloading...", message: "0%", preferredStyle: .alert)
+        
+        let height = NSLayoutConstraint(item: alert.view,
+                                       attribute: .height,
+                                       relatedBy: .equal,
+                                       toItem: nil,
+                                       attribute: .notAnAttribute,
+                                       multiplier: 0,
+                                       constant: 170)
+        
+        alert.view.addConstraint(height)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) { (action) in
+            self.dataProvider.stopDownload()
+        }
+        
+        alert.addAction(cancelAction)
+        
+        ///Отображение прогресс-бара и индикатора загрузки
+        present(alert, animated: true) {
+            let size = CGSize(width: 40, height: 40)
+            let point = CGPoint(x: self.alert.view.frame.width / 2 - size.width / 2, y: self.alert.view.frame.height / 2 - size.height / 2)
+            
+            let activityIndicator = UIActivityIndicatorView(frame: CGRect(origin: point, size: size))
+            
+            activityIndicator.color = .gray
+            activityIndicator.startAnimating()
+            
+            let progressView = UIProgressView(frame: CGRect(x: 0, y: self.alert.view.frame.height - 44, width: self.alert.view.frame.width, height: 2))
+            progressView.tintColor = .blue
+            self.dataProvider.onProgress = { (progress) in
+                progressView.progress = Float(progress)
+                self.alert.message = String(Int(progress * 10000)) + "%"
+            }
+            
+            self.alert.view.addSubview(activityIndicator)
+            self.alert.view.addSubview(progressView)
+        }
+    }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return actions.count
@@ -56,7 +117,32 @@ class MainViewController: UICollectionViewController {
         case .uploadImage:
             NetworkManager.uploadImage(url: uploadImage)
         case .downLoadFile:
-            print(action.rawValue)
+            showAlert()
+            dataProvider.startDownload()
         }
+    }
+}
+
+extension MainViewController {
+    
+    ///Запрос у пользователя на отправку уведомлений
+    private func registerForNotification() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (_, _) in
+            
+        }
+    }
+    
+    ///Уведомление, срабатывающее по времени
+    private func postNotification() {
+        //Объект контента
+        let content = UNMutableNotificationContent()
+        content.title = "Download complete!"
+        content.body = "Your background transfer has completed. File path: \(filePath!)"
+        //Временной интервал в 3 секунды
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+        //Запрос, в который передан контент и тригер
+        let request = UNNotificationRequest(identifier: "TransferComplete", content: content, trigger:  trigger)
+        //Запрос передан в центр нотификаций
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
 }

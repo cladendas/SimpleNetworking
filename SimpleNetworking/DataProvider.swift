@@ -20,7 +20,7 @@ class DataProvider: NSObject {
     ///Параметры конфигурации данных для фоновой загрузки данных
     private lazy var bgSession: URLSession = {
         //Определяет поведение сессии при загрузке-выгрузке данных
-        //background - параметры конфигурации с возможностью фоновой загрузки данных, ему передаётся bundl приложения
+        //background - параметры конфигурации с возможностью фоновой загрузки данных, ему передаётся bundle приложения
         let config = URLSessionConfiguration.background(withIdentifier: "study-swift.SimpleNetworking")
         //могут ли фоновые быть запланированы системой для обеспечения оптимальной производительности
 //        config.isDiscretionary = true
@@ -68,6 +68,8 @@ extension DataProvider: URLSessionDelegate {
 }
 
 extension DataProvider: URLSessionDownloadDelegate {
+    ///Для получения ссылки на загруженный файл
+    ///location - хранит директорию, в которую сохраняется скачанный файл
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         print("Did finish downloading: \(location.absoluteString)")
         
@@ -77,13 +79,12 @@ extension DataProvider: URLSessionDownloadDelegate {
     }
     
     ///Для возможности отображения хода выполнения загрузки
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64) {
-        
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         //Если ожидаемый размер файла
-        guard expectedTotalBytes != NSURLSessionTransferSizeUnknown else { return }
+        guard totalBytesExpectedToWrite != NSURLSessionTransferSizeUnknown else { return }
         
         //Результат деления кол-ва переданных байт на общее кол-во байт
-        let progress = Double(fileOffset / expectedTotalBytes)
+        let progress = Double(bytesWritten) / Double(totalBytesExpectedToWrite)
         print("Download progress: \(progress)")
         
         DispatchQueue.main.async {
