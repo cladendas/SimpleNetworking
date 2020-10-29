@@ -10,6 +10,8 @@
 		6AAB92D9253B8B0F008611D2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAB92D8253B8B0F008611D2 /* MainViewController.swift */; };
 		6AAB92DB253B8B1D008611D2 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAB92DA253B8B1D008611D2 /* CollectionViewCell.swift */; };
 		6AB192AF2549B137002D13C2 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB192AE2549B136002D13C2 /* DataProvider.swift */; };
+		6AB192B5254AFA44002D13C2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB192B4254AFA44002D13C2 /* Alamofire.framework */; };
+		6AB192B6254AFA44002D13C2 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB192B4254AFA44002D13C2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6AEA08C5253D9FEF00B24176 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEA08C4253D9FEF00B24176 /* NetworkManager.swift */; };
 		6AEA08C7253E30CD00B24176 /* ImageProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEA08C6253E30CD00B24176 /* ImageProperties.swift */; };
 		6AFBC2D92536063E00BF70A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFBC2D82536063E00BF70A5 /* AppDelegate.swift */; };
@@ -26,10 +28,26 @@
 		6AFBC2FE253B36B500BF70A5 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFBC2FD253B36B500BF70A5 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6AB192B7254AFA44002D13C2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6AB192B6254AFA44002D13C2 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6AAB92D8253B8B0F008611D2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6AAB92DA253B8B1D008611D2 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		6AB192AE2549B136002D13C2 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		6AB192B0254AFA19002D13C2 /* Alamofire */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = Alamofire; path = Carthage/Build/iOS/Alamofire.framework/Alamofire; sourceTree = "<group>"; };
+		6AB192B4254AFA44002D13C2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		6AEA08C4253D9FEF00B24176 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		6AEA08C6253E30CD00B24176 /* ImageProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProperties.swift; sourceTree = "<group>"; };
 		6AFBC2D52536063E00BF70A5 /* SimpleNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AFBC2FE253B36B500BF70A5 /* WebKit.framework in Frameworks */,
+				6AB192B5254AFA44002D13C2 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +123,8 @@
 		6AFBC2FC253B36B400BF70A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6AB192B4254AFA44002D13C2 /* Alamofire.framework */,
+				6AB192B0254AFA19002D13C2 /* Alamofire */,
 				6AFBC2FD253B36B500BF70A5 /* WebKit.framework */,
 			);
 			name = Frameworks;
@@ -119,6 +140,8 @@
 				6AFBC2D12536063E00BF70A5 /* Sources */,
 				6AFBC2D22536063E00BF70A5 /* Frameworks */,
 				6AFBC2D32536063E00BF70A5 /* Resources */,
+				6AB192B7254AFA44002D13C2 /* Embed Frameworks */,
+				6AB192B8254AFA5D002D13C2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -174,6 +197,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6AB192B8254AFA5D002D13C2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6AFBC2D12536063E00BF70A5 /* Sources */ = {
@@ -337,10 +382,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SimpleNetworking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS/Alamofire.framework",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "study-swift.SimpleNetworking";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -354,10 +407,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SimpleNetworking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS/Alamofire.framework",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "study-swift.SimpleNetworking";
 				PRODUCT_NAME = "$(TARGET_NAME)";

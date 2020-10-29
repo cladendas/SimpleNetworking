@@ -22,7 +22,7 @@ class DataProvider: NSObject {
         //Определяет поведение сессии при загрузке-выгрузке данных
         //background - параметры конфигурации с возможностью фоновой загрузки данных, ему передаётся bundle приложения
         let config = URLSessionConfiguration.background(withIdentifier: "study-swift.SimpleNetworking")
-        //могут ли фоновые быть запланированы системой для обеспечения оптимальной производительности
+        //могут ли фоновые задачи быть запланированы системой для обеспечения оптимальной производительности (загрузка больших данных только после подключения к вай-фай)
 //        config.isDiscretionary = true
         //по завершению загрузки данных приложение запустится в фоновом режиме
         config.sessionSendsLaunchEvents = true
@@ -84,7 +84,7 @@ extension DataProvider: URLSessionDownloadDelegate {
         guard totalBytesExpectedToWrite != NSURLSessionTransferSizeUnknown else { return }
         
         //Результат деления кол-ва переданных байт на общее кол-во байт
-        let progress = Double(bytesWritten) / Double(totalBytesExpectedToWrite)
+        let progress = Double(totalBytesWritten) / Double(totalBytesExpectedToWrite)
         print("Download progress: \(progress)")
         
         DispatchQueue.main.async {

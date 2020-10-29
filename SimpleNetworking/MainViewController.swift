@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 enum Actions: String, CaseIterable {
     case downloadImage = "Download Image"
@@ -15,6 +16,7 @@ enum Actions: String, CaseIterable {
     case ourCourses = "Our Courses"
     case uploadImage = "Upload Image"
     case downLoadFile = "Download file"
+    case ourCoursesAlamofire = "Our Courses (Alamofire)"
 }
 
 private let reuseIdentifier = "Cell"
@@ -81,7 +83,7 @@ class MainViewController: UICollectionViewController {
             progressView.tintColor = .blue
             self.dataProvider.onProgress = { (progress) in
                 progressView.progress = Float(progress)
-                self.alert.message = String(Int(progress * 10000)) + "%"
+                self.alert.message = String(Int(progress * 100)) + "%"
             }
             
             self.alert.view.addSubview(activityIndicator)
@@ -119,6 +121,8 @@ class MainViewController: UICollectionViewController {
         case .downLoadFile:
             showAlert()
             dataProvider.startDownload()
+        case .ourCoursesAlamofire:
+            print("Our Courses Alamofire")
         }
     }
 }
