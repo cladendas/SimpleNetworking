@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 enum Actions: String, CaseIterable {
     case downloadImage = "Download Image"
@@ -121,8 +120,22 @@ class MainViewController: UICollectionViewController {
         case .downLoadFile:
             showAlert()
             dataProvider.startDownload()
+        //Для использования сетевых запросов с помощью Alamofire
         case .ourCoursesAlamofire:
-            print("Our Courses Alamofire")
+            performSegue(withIdentifier: "OurCoursesWithAlamofire", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let coursesVC = segue.destination as? CoursesViewController
+        
+        switch segue.identifier {
+        case "OurCourses":
+            coursesVC?.fetchData()
+        case "OurCoursesWithAlamofire":
+            coursesVC?.fetchDataWithAlamofire()
+        default:
+            break
         }
     }
 }
