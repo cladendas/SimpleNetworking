@@ -12,7 +12,7 @@ import Alamofire
 ///Отвечает за все сетевые запросы с использованием Alamofire
 class AlamofireNetworkRequest {
     
-    static func sendRequest(url: String) {
+    static func sendRequest(url: String, complition: @escaping (_ courses: [Course]) -> ()) {
         guard let url = URL(string: url) else { return }
 
         //request - принмает адрес, по которому следует послать запрос
@@ -39,8 +39,12 @@ class AlamofireNetworkRequest {
         AF.request(url).validate().responseJSON { (response) in
             switch response.result {
                 case .success(let value):
-                    print(value)
-            case .failure(let error):
+                    
+                    var courses = [Course]()
+                    courses = Course.getArray(from: value)!
+                    complition(courses)
+                
+                case .failure(let error):
                     print(error)
             }
         }

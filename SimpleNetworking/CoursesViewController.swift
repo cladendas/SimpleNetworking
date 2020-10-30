@@ -17,10 +17,8 @@ class CoursesViewController: UITableViewController {
     private let url = "https://swiftbook.ru/wp-content/uploads/api/api_courses"
     
     func fetchData() {
-        
         NetworkManager.fetchData(url: url) { (courses) in
             self.courses = courses
-            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -28,7 +26,12 @@ class CoursesViewController: UITableViewController {
     }
     
     func fetchDataWithAlamofire() {
-        AlamofireNetworkRequest.sendRequest(url: url)
+        AlamofireNetworkRequest.sendRequest(url: url) { (courses) in
+            self.courses = courses
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     private func configureCell(cell: TableViewCell, for indexPath: IndexPath) {
