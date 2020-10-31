@@ -17,9 +17,6 @@ class ImageViewController: UIViewController {
     private let url = "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
         
     func fetchImage() {
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-        
         NetworkManager.downLoadImage(url: url) { (image) in
             self.activityIndicator.stopAnimating()
             self.image.image = image
@@ -41,10 +38,9 @@ class ImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.isHidden = true
+        activityIndicator.startAnimating()
         //скроет индикатор, когда он остановится
         activityIndicator.hidesWhenStopped = true
-        fetchImage()
     }
 }
 
