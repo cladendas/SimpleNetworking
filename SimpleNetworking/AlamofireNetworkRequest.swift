@@ -49,4 +49,41 @@ class AlamofireNetworkRequest {
             }
         }
     }
+    
+    //Один из способов обработки результата запроса через Alamofire
+    static func responseData(url: String) {
+        AF.request(url).responseData { (responseData) in
+            switch responseData.result {
+                case .success(let data):
+                    guard let string = String(data: data, encoding: .utf8) else { return }
+                    print(string)
+                case .failure(let error):
+                    print(error)
+            }
+        }
+    }
+    
+    //Ещё один из способов обработки результата запроса через Alamofire
+    static func responseString(url: String) {
+        AF.request(url).responseString { (responseString) in
+            switch responseString.result {
+                case .success(let string):
+                        print(string)
+                case .failure(let error):
+                        print(error)
+            }
+        }
+    }
+    
+    //И ещё один из способов обработки результата запроса через Alamofire
+    static func response(url: String) {
+        AF.request(url).response { (response) in
+            guard
+                let data = response.data,
+                let string = String(data: data, encoding: .utf8)
+            else { return }
+            
+            print(string)
+        }
+    }
 }

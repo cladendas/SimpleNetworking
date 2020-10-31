@@ -37,6 +37,7 @@ struct Course: Decodable {
         self.numberOfTests = numberOfTests
     }
     
+    //Для обработки массива
     static func getArray(from jsonArray: Any) -> [Course]?{
         guard let jsonArray = jsonArray as? Array<[String: Any]> else { return nil}
         return jsonArray.compactMap { Course(json: $0) }
